@@ -1,6 +1,9 @@
-name: Release
+name: Beta Release
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
 
 concurrency:
   group: release-${{ github.ref }}
@@ -8,8 +11,10 @@ concurrency:
 
 jobs:
   release:
-    name: Release
+    name: Beta Release
     runs-on: ubuntu-latest
+    env:
+      RELEASE_CHANNEL: 'beta'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
