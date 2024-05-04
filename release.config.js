@@ -1,5 +1,13 @@
+const branches = []
+
+// Set prelease based on yml file
+if (process.env.RELEASE_CHANNEL === 'beta') {
+  branches.push({ name: 'main', prerelease: true })
+} else {
+  branches.push('main')
+}
 module.exports = {
-  branches: ['main'],
+  branches,
   // eslint-disable-next-line no-template-curly-in-string
   tagFormat: '${version}',
   plugins: [
