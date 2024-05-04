@@ -6,6 +6,8 @@ if (process.env.RELEASE_CHANNEL === 'beta') {
 } else {
   branches.push('main')
 }
+
+console.log(process.env.RELEASE_CHANNEL, branches)
 module.exports = {
   branches,
   // eslint-disable-next-line no-template-curly-in-string
